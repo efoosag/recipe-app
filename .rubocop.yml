@@ -28,6 +28,9 @@ Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
 
+
+Layout/EndOfLine:
+  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
