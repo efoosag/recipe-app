@@ -1,6 +1,6 @@
 
       <h2>Add New Recipe</h2>
-      <%= form_with model: @recipe, url: user_recipes_path, method: :post,  local: true, scope: :recipe,data: { turbo: false }  do |form| %>
+      <%= form_with model: @recipe, method: :post,  local: true,  url: user_recipes_path, scope: :recipe, data: { turbo: false }  do |form| %>
        
           <%= form.label :name %>
           <%= form.text_field :name, autofocus: true %>

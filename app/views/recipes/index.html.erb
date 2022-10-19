@@ -1,10 +1,10 @@
 
     
-    <%= link_to  "Create new Recipe", new_user_recipe_path(current_user) %> 
-     
+<%= link_to  "Create new Recipe", new_user_recipe_path(current_user) %>      
     <% @recipes.each do |recipe| %>
       <%= link_to  recipe.name, user_recipe_path(current_user, recipe)%>
       <%= recipe.description%>
       <%= button_to user_recipe_path(current_user, recipe), method: :delete,data: { confirm: 'Are you sure?' } do %>        
     <%end%>
+<%end%>
            

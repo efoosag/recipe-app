@@ -11,16 +11,9 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    respond_to do |format|
-      format.html { render :new, locals: { recipe: @recipe } }
-    end
-  end
-
-  def recipe_params
-    params
-      .require(:recipe)
-      .permit(:name, :description, :public, :preparation_time, :cooking_time)
-      .merge(user_id: params[:user_id])
+    # respond_to do |format|
+    #   format.html { render :new, locals: { recipe: @recipe } }
+    # end
   end
 
   def create
@@ -40,5 +33,15 @@ class RecipesController < ApplicationController
 
   def public_recipes
     @recipes = Recipe.where(public: true)
+  end
+
+  private
+
+  
+  def recipe_params
+    params
+      .require(:recipe)
+      .permit(:name, :description, :public, :preparation_time, :cooking_time)
+      .merge(user_id: params[:user_id])
   end
 end
