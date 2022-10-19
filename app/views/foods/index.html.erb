@@ -1,0 +1,29 @@
+<h3><%= link_to 'Add food', new_food_path %></h3>
+
+<table class="table-container">
+    <% if @foods.empty? %>
+    <h3>There are no food yet.</h3>
+    <% else %>
+        <thead class="table-head">
+            <tr>
+                <th>Name</th>
+                <th>Measurement Unit</th>
+                <th>Unit Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @foods.each do |food| %>
+            <tr>
+                <td><%= food.name %></td>
+                <td><%= food.measurement_unit %></td>
+                <td><%= food.price %></td>
+                <td>
+                    <%= link_to 'Show', food %>
+                    <%= link_to 'Edit', edit_food_path(food) %>
+                    <%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+</table>
