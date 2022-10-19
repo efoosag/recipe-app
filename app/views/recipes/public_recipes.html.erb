@@ -1,0 +1,34 @@
+<% if !current_user %>
+  <%= link_to "Sign In", new_user_session_path %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+<% end %>
+<div></div>
+<div>
+  <div>
+    <div>
+      <h1>Easily keep track of  <br />
+        <span>Foods and Recipes</span></h1>
+      <%= link_to 'Add food', new_food_path %>
+      <%= link_to  "Add Recipe", new_user_recipe_path(current_user) %>
+    </div>
+  </div>
+</div>
+<div>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <%= link_to user_recipe_path(recipe.user_id, recipe)  do %>
+        <div>
+          <h5>  <%= recipe.name%></h5>
+          <p>
+            By: <%= recipe.user.name %>
+          </p>
+          <% @recipe_foods = RecipeFood.joins(:food, :recipe).where(food: { user: recipe.user_id }, recipe: { user: recipe.user_id }) %>
+          <% @total_items = @recipe_foods.where(recipe_id: recipe.id).count %>
+          <% @total_cost = @recipe_foods.where(recipe_id: recipe.id).sum('food.quantity * food.price') %>
+          <div>Total Food Items: <%= @total_items%></div>
+          <div>Total Price: <%=number_to_currency @total_cost%></div>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
+</div>
