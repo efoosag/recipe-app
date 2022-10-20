@@ -12,4 +12,13 @@ end
   resources :foods, only: %i[index show new create destroy] do
   resources :recipe_foods, only: %i[create destroy]
   end
+<<<<<<< HEAD
+=======
+
+  root 'foods#index'
+  resources :foods, only: [:index, :new, :create, :destroy]
+  resources :recipe_foods, only: [:index, :show]
+  # Defines the root path route ("/")
+  # root "articles#index"
+>>>>>>> 205037de58e1c879066dad423d45d4d6b36df6ac
 end
