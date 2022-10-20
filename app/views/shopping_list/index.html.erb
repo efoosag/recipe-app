@@ -1,10 +1,15 @@
 <h1 class='text-3xl font-bold text-gray-400 text-center mt-5'>SHOPPING LIST </h1>
-
+<% count = 0 %>
+<% sum = 0 %>
+<% @items.each do |item| %>
+  <% sum += item.food.price %>
+  <% count += 1 %>
+<% end %>
 <div class="overflow-x-auto">
   <div class="min-w-screen min-h-screen bg-gray-100 flex pt-10 justify-center bg-gray-100 font-sans overflow-hidden">
     <div class="w-full lg:w-5/6">
-    <h3 class='font-bold text-gray-400'>Amount of food items to buy: <%=@total_items%></h3>
-    <h3 class='font-bold text-gray-400'>Total value of food needed: <%= number_to_currency @total_value%></h3>
+    <h3 class='font-bold text-gray-400'>Amount of food items to buy: <%= count%></h3>
+    <h3 class='font-bold text-gray-400'>Total value of food needed: <%= number_to_currency(sum)%></h3>
       <div class="bg-white shadow-md rounded my-6">
         <table class="min-w-max w-full table-auto">
           <thead>
@@ -19,17 +24,17 @@
               <tr class="border-b border-gray-200 hover:bg-gray-100">
                 <td class="py-3 px-6 text-left whitespace-nowrap">
                   <div class="flex items-center">
-                    <span class="font-medium"><%= item['name'] %></span>
+                    <span class="font-medium"><%= item.food.name %></span>
                   </div>
                 </td>
                 <td class="py-3 px-6 text-center">
                   <div class="flex items-center justify-center">
-                 <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">   <%= item['quantity']%> <%= item['measurement_unit']%></span>
+                 <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">   <%= item['quantity']%> <%= item['food.measurement_unit']%></span>
                   </div>
                 </td>
                 <td class="py-3 px-6 text-center">
                   <div class="flex items-center justify-center">
-                    <%= number_to_currency item['total_price']%>
+                    <%= number_to_currency( item.food.price)%>
                   </div>
                 </td>
               </tr>
