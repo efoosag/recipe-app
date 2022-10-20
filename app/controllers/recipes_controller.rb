@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = current_user.recipes
+    # @recipes = current_user.recipes
+    @recipes = Recipe.all
   end
 
   def show
@@ -17,9 +18,11 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.new(recipe_params)
+    puts ".............#{recipe_params}"
+    @recipe = Recipe.new(recipe_params)
+
     if @recipe.save
-      redirect_to user_recipe_path(@recipe.user_id, @recipe.id)
+      redirect_to user_recipes_path(current_user)
     else
       render :new
     end

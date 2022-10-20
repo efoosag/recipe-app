@@ -1,6 +1,6 @@
 
     
-<%= link_to  "Create new Recipe", new_user_recipe_path(current_user) %>      
+<%= button_to  "Create new Recipe", new_user_recipe_path(current_user), method: :get  %>      
     <% @recipes.each do |recipe| %>
       <%= link_to  recipe.name, user_recipe_path(current_user, recipe)%>
       <%= recipe.description%>

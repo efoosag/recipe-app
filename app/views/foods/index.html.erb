@@ -19,11 +19,10 @@
                 <td><%= food.measurement_unit %></td>
                 <td><%= food.price %></td>
                 <td>
-                    <%= link_to 'Show', food %>
-                    <%= link_to 'Edit', edit_food_path(food) %>
-                    <%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= button_to 'Destroy', food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
             </tr>
             <% end %>
         </tbody>
+    <% end %>
 </table>

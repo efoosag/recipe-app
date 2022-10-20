@@ -1,6 +1,6 @@
 
       <h2>Add New Recipe</h2>
-      <%= form_with model: @recipe, method: :post,  local: true,  url: user_recipes_path, scope: :recipe, data: { turbo: false }  do |form| %>
+      <%= form_with model: @recipe, url: user_recipes_path(current_user), html: {'data-turbo' => "false"}, scope: :recipe do |form| %>
        
           <%= form.label :name %>
           <%= form.text_field :name, autofocus: true %>
@@ -11,6 +11,7 @@
       
        
           <%= form.label :preparation_time %>
+          <%= form.number_field :preparation_time, step: 0.1, autofocus: true %>
       
        
           <%= form.label :cooking_time %>
