@@ -18,18 +18,18 @@ RSpec.describe Recipe, type: :model do
     end
 
     it 'should have a valid description' do
-        subject.description = nil
-        expect(subject).to_not be_valid
+      subject.description = nil
+      expect(subject).to_not be_valid
     end
 
     it 'preparation time should not be blank' do
-        subject.preparation_time = ''
-        expect(subject).to_not be_valid
+      subject.preparation_time = ''
+      expect(subject).to_not be_valid
     end
 
     it 'cooking time should not be blank' do
-        subject.cooking_time = ''
-        expect(subject).to_not be_valid
+      subject.cooking_time = ''
+      expect(subject).to_not be_valid
     end
   end
 end
