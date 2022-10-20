@@ -52,7 +52,9 @@ To setup and install this sample AlFa Blog project, follow the below steps:
 ### Authors
 👤 **Afolabi**
 
-
+- GitHub: [@brainconnect93](https://github.com/brainconnect93)
+- Twitter: [@brainconnect0](https://twitter.com/brainconnect0)
+- LinkedIn: [Afolabi Akorede](https://linkedin.com/in/brainconnect93)
 
 👤 **Victor**
 
