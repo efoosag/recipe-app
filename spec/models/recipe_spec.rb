@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   describe 'Testing validations' do
-    @user = User.new(name: 'Afolabi', email: '12abcd@gmail.com', password: '123456')
+    @user = User.new(name: 'Victor', email: '12abcd@gmail.com', password: '123456')
     subject { Recipe.new(name: 'Yam flour', user: @user, description: 'This is the best african food') }
 
     before { subject.save }
